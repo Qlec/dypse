@@ -1,0 +1,111 @@
+
+
+<!DOCTYPE html>
+<!-- All code licensed under the GNU GPL v3 license. -->
+<html>
+    <head>
+        <title>Dypse</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="Description" content="Dypse...">
+        <link crossorigin="anonymous" rel="stylesheet" href="https://fonts.googleapis.com/css?family=DM+Sans"/>
+        <link rel="icon" href="./icon-64.png">
+        <style>
+            * {
+                font-family: 'DM Sans';
+                background-color: #2a272d;
+                color: #ffffff;
+                border-color: rgb(118, 118, 118);
+                border-radius: 3px;
+                font-size: 12px;
+                text-align: left;
+            }
+
+            input {
+                border-radius: 3px;
+                margin: 3px;
+                padding: 5px;
+                border-style: solid;
+            }
+
+            .notice {
+                font-size: 11px;
+                color: rgb(118, 118, 118);
+            }
+
+            #warning {
+                border-radius: 4px;
+                background-color: rgb(255, 238, 0, .35);
+                margin: 3px;
+                margin-top: 15px;
+                padding: 10px;
+                max-width: 80vw;
+                width: 300px;
+            }
+
+            #identifier, #site, #masterPwd {
+                max-width: 80vw;
+                width: 350px;
+                margin-bottom: 8px;
+                padding: 4px;
+                padding-left: 8px;
+                height: 23px;
+            }
+
+            #pin {
+                max-width: 80vw;
+                width: 220px;
+                padding: 4px;
+                padding-left: 8px;
+                height: 23px;
+            }
+
+            #length {
+                max-width: 80vw;
+                width: 60px;
+                padding: 4px;
+                padding-left: 8px;
+                height: 23px;
+            }
+
+            #lower, #upper, #numbers, #symbols {
+                padding: 0px;
+                margin: 10px;
+                margin-right: 3px;
+            }
+
+            #generateBtn {
+                border-style: solid;
+                margin: 3px;
+                padding: 5px;
+                cursor: pointer;
+            }
+        </style>
+    </head>
+    <body>
+        <form>
+            <input type="text" id="site" placeholder="site" title="site name (e.g. google.com)"><br>
+            <input type="text" id="identifier" placeholder="identifier" title="identifier (e.g. username, full name)"><br>
+            <input type="password" id="masterPwd" placeholder="master password" title="master password"><br>
+            <input type="password" id="pin" min="1000" max="999999" placeholder="phrase" title="phrase (e.g. suspicious rainbow donkeys spat)">
+            <input type="number" id="length" min="10" max="100" value="25" placeholder="length" title="length of password"><br>
+
+            <input type="checkbox" id="lower" title="lowercase letters" checked>
+            <label for="lower" title="lowercase letters">a-z</label>
+            <input type="checkbox" id="upper" title="uppercase letters" checked>
+            <label for="upper" title="uppercase letters">A-Z</label>
+            <input type="checkbox" id="numbers" title="numbers" checked>
+            <label for="numbers" title="numbers">0-9</label>
+            <input type="checkbox" id="symbols" title="!@#$%^&*()~{}[]" checked>
+            <label for="symbols" title="!@#$%^&*()~{}[]">symbols</label><br>
+        </form>
+
+        <button id="generateBtn" onclick="createPassword();">generate</button>
+        <span class="notice">Your password will be copied.</span>
+
+        <div id="warning" style="display: none;"></div>
+
+        <!-- js -->
+        <script src="flavortext.js"></script>
+        <script src="pwd.js"></script>
+    </body>
+</html>
